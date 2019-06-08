@@ -85,19 +85,15 @@ bool DronesManager::insert_front(DroneRecord value) {
 
 bool DronesManager::insert_back(DroneRecord value) {
 	if(!first)
-		first = new Node(data);
-	else { // general case: non-empty list
-		Node* end = first; // init end ptr
-		while (end->get_next()) // iterate until NULL
-			end = end->get_next();
-		end->set_next(new Node(data)); // insert at the end
-									   // set next = NULL 
-									   // in the constructor
+		first = new DroneRecord(value);
+	else {
+		DroneRecord* curr = first;
+		while (curr -> next)
+			curr = curr -> next;
+		curr -> next = new DroneRecord(value);
 	}
-
-    ++size; // update size
-    return true; // return true
-	return false;
+    	++size;
+    	return true;
 }
 
 bool DronesManager::remove(unsigned int index) {
