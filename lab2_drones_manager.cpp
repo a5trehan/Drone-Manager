@@ -91,8 +91,8 @@ bool DronesManager::insert_back(DroneRecord value) {
 		while (curr -> next)
 			curr = curr -> next;
 		curr -> next = new DroneRecord(value);
+		++size;
 	}
-    	++size;
     	return true;
 }
 
@@ -105,7 +105,17 @@ bool DronesManager::remove_front() {
 }
 
 bool DronesManager::remove_back() {
-	return false;
+	if(!first)
+		return true;
+	else {
+		DroneRecord* curr = first;
+		while(curr -> next -> next)
+			curr = curr -> next;
+		delete curr -> next;
+		curr -> next = NULL;
+		--size;
+	}
+	return true;
 }
 
 bool DronesManager::replace(unsigned int index, DroneRecord value) {
