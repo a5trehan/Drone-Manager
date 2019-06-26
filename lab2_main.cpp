@@ -1,3 +1,4 @@
+//Aryan Trehan (20773503), Elijah O'Leary (20773501), Chad Kirton (20723665)
 #include <iostream>
 #include <string>
 
@@ -43,4 +44,5 @@ int main() {
     	cout << test_descriptions[index] << endl << get_status_str(test_results[index]) << endl;
 	}
     system("pause");
+    return 0;
 }
